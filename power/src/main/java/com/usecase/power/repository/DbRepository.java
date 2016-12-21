@@ -10,7 +10,7 @@ public interface DbRepository {
 
 	Iterable<MeterReading> getAllMeterReading();
 
-	MeterReading findByMonth();
+	MeterReading findByMonth(Long id);
 	
 	void createFractions(Collection<Fraction> fractions);
 	

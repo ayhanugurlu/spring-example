@@ -27,8 +27,8 @@ public class RelationalDbRepositoryImpl implements DbRepository {
 	}
 
 	@Override
-	public MeterReading findByMonth() {
-		return meterReadingRepository.findByMonth();
+	public MeterReading findByMonth(Long id) {
+		return meterReadingRepository.findOne(id);
 	}
 
 	@Override

@@ -8,8 +8,4 @@ import com.usecase.power.model.MeterReading;
 @RepositoryRestResource
 public interface MeterReadingRepository extends CrudRepository<MeterReading, Long> {
 
-	default MeterReading findByMonth() {
-		return null;
-	}
-
 }

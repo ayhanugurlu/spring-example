@@ -27,8 +27,8 @@ public class MeterServiceImpl implements MeterService {
 	}
 
 	@Override
-	public MeterReading findByMonth() {
-		return repository.findByMonth();
+	public MeterReading findByMonth(Long id) {
+		return repository.findByMonth(id);
 	}
 
 	@Override

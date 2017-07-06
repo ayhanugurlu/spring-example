@@ -1,31 +1,37 @@
 package com.iata.timatic.repository.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Ayhan Ugurlu - (ayhan.ugurlu@odc.com.tr) on 6.07.2017.
  */
 @Entity
-public class User {
+public class User implements Serializable{
 
     @Id
-    private String id;
+    @GeneratedValue
+    private Long id;
 
+    @Column(nullable = false)
     private String username;
 
+    @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
     private String fullName;
 
-    private Date lastLogin;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -53,11 +59,5 @@ public class User {
         this.fullName = fullName;
     }
 
-    public Date getLastLogin() {
-        return lastLogin;
-    }
 
-    public void setLastLogin(Date lastLogin) {
-        this.lastLogin = lastLogin;
-    }
 }

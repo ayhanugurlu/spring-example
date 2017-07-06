@@ -7,7 +7,6 @@ public class LoginResponce {
 
     private String name;
 
-
     public String getName() {
         return name;
     }

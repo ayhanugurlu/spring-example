@@ -1,6 +1,5 @@
 package com.iata.timatic.rs;
 
-import com.iata.timatic.rs.dto.LoginResponce;
 import org.springframework.http.HttpStatus;
 
 /**

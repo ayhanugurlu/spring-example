@@ -1,4 +1,4 @@
-package com.iata.timatic.rs.dto;
+package com.iata.timatic.rs.dto.resp;
 
 /**
  * Created by Ayhan Ugurlu - (ayhan.ugurlu@odc.com.tr) on 5.07.2017.
@@ -6,7 +6,7 @@ package com.iata.timatic.rs.dto;
 public class LoginResponce {
 
     private String name;
-    private String surname;
+
 
     public String getName() {
         return name;
@@ -16,11 +16,5 @@ public class LoginResponce {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 }

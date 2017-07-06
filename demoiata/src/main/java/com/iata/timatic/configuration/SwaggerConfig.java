@@ -1,4 +1,4 @@
-/*
+
 package com.iata.timatic.configuration;
 
 import com.google.common.base.Predicates;
@@ -31,4 +31,4 @@ public class SwaggerConfig {
                 .build();
     }
 
-}*/
+}

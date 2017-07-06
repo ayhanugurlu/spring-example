@@ -7,6 +7,8 @@ public class LoginResponce {
 
     private String name;
 
+    private String token;
+
     public String getName() {
         return name;
     }
@@ -16,4 +18,11 @@ public class LoginResponce {
     }
 
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

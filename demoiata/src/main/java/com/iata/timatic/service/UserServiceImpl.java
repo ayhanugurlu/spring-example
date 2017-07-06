@@ -4,6 +4,7 @@ import com.iata.timatic.repository.UserRepository;
 import com.iata.timatic.repository.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by Ayhan Ugurlu - (ayhan.ugurlu@odc.com.tr) on 6.07.2017.
  */
 
-@Component
+@Service
 public class UserServiceImpl implements  UserService{
 
     @Autowired

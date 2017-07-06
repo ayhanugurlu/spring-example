@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(value = "/login", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class LoginController {
 
     private Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -25,6 +25,14 @@ public class LoginController {
     UserService userService;
 
 
+
+
+    @ApiOperation(value = "test")
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test(){
+        return "test responce";
+    }
+
     @ApiOperation(value = "Login user")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public LoginResponce getLogin(@RequestBody LoginRequest loginRequest) throws Exception {
@@ -32,6 +40,7 @@ public class LoginController {
         LoginResponce resp = new LoginResponce();
         if(user != null){
             resp.setName(user.getFullName());
+            resp.setToken("token");
         }
         return resp;
     }

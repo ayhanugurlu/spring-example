@@ -1,0 +1,23 @@
+<ion-view title="IATA Timatic Mobile Login" id="page1">
+  <ion-content padding="true" class="has-header">
+    <div id="iATATimaticMobileLogin-container1">
+      <div>
+        <img src="img/DynLB6y0QlOb5iYUJqds_IATA.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+      </div>
+    </div>
+    <form id="iATATimaticMobileLogin-form2" class="list">
+      <label class="item item-input" id="iATATimaticMobileLogin-input3">
+        <span class="input-label">Username</span>
+        <input type="text" placeholder="" ng-model="loginReq.username"
+               ng-pattern="inputPattern" required ng-trim="false">
+      </label>
+      <label class="item item-input" id="iATATimaticMobileLogin-input4">
+        <span class="input-label">Password</span>
+        <input type="password" placeholder="" ng-model="loginReq.password"
+               ng-pattern="inputPattern" required ng-trim="false">
+      </label>
+    </form>
+    <a ng-click="login()" id="iATATimaticMobileLogin-button2" class="button button-positive button-block">Log In</a>
+    <button id="iATATimaticMobileLogin-button3" style="border-radius:-1px -1px -1px -1px;" class="button button-stable button-block">Contact IATA Timatic Team</button>
+  </ion-content>
+</ion-view>

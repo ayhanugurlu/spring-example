@@ -14,7 +14,7 @@
 
 
         // Define initial values
-        $scope.test= '';
+        $scope.username= '';
         $scope.loginReq = new LoginRequest();
         $scope.inputPattern = /^\s*\w*\s*$/;
 
@@ -28,7 +28,8 @@
             console.debug("call logın service ");
             console.debug($scope.loginReq);
             this.demoFactory.login($scope.loginReq).success(function (data) {
-                console.debug("Got response data from server, response message: " + data.message);
+                console.debug("Got response data from server, response message: " + data);
+                $scope.username = data.name;
             }).error(function (data, status) {
                 var errorMessage = 'Unable to load metrics, data: ' + data + ' status: ' + status;
                 console.debug(errorMessage);

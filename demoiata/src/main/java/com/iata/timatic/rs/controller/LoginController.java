@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Created by Ayhan Ugurlu - (ayhan.ugurlu@odc.com.tr) on 5.07.2017.
  */
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class LoginController {
@@ -22,6 +23,7 @@ public class LoginController {
 
     @Autowired
     UserService userService;
+
 
     @ApiOperation(value = "Login user")
     @RequestMapping(value = "/login", method = RequestMethod.POST)

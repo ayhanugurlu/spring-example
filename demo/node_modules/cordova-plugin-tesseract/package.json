@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "file://D:\\own\\cordova-plugin\\cordova-plugin-tesseract",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "file://D:\\own\\cordova-plugin\\cordova-plugin-tesseract",
+        "spec": "D:\\own\\cordova-plugin\\cordova-plugin-tesseract",
+        "type": "directory"
+      },
+      "D:\\own\\github\\spring-example\\demo\\node_modules"
+    ]
+  ],
+  "_from": "..\\..\\..\\cordova-plugin\\cordova-plugin-tesseract",
+  "_id": "cordova-plugin-tesseract@0.0.1",
+  "_inCache": true,
+  "_location": "/cordova-plugin-tesseract",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "file://D:\\own\\cordova-plugin\\cordova-plugin-tesseract",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "file://D:\\own\\cordova-plugin\\cordova-plugin-tesseract",
+    "spec": "D:\\own\\cordova-plugin\\cordova-plugin-tesseract",
+    "type": "directory"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "file:..\\..\\..\\cordova-plugin\\cordova-plugin-tesseract",
+  "_shasum": "eba7c868a28c5dca9577f18cfb6d58d9ca2aa0c7",
+  "_shrinkwrap": null,
+  "_spec": "file://D:\\own\\cordova-plugin\\cordova-plugin-tesseract",
+  "_where": "D:\\own\\github\\spring-example\\demo\\node_modules",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/gustavomazzoni/cordova-plugin-tesseract/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-tesseract",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "This is a Cordova/Ionic plugin for OCR process using Tesseract library for both Android and iOS. [Tesseract](https://github.com/tesseract-ocr/tesseract) is an Open Source library for OCR (Optical Character Recognition) process.",
+  "devDependencies": {},
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=3.6.0"
+    }
+  ],
+  "gitHead": "38e90e9a159f6fd4b694b1b34cff0dfc3502078c",
+  "homepage": "https://github.com/gustavomazzoni/cordova-plugin-tesseract#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "ISC",
+  "name": "cordova-plugin-tesseract",
+  "optionalDependencies": {},
+  "readme": "# Cordova Tesseract-OCR Plugin - For Android and iOS\r\n\r\nThis is a Cordova/Ionic plugin for OCR process using Tesseract library for both Android and iOS. [Tesseract](https://github.com/tesseract-ocr/tesseract) is an Open Source library for OCR (Optical Character Recognition) process.\r\n\r\nThis plugin defines a global `TesseractPlugin` object, which provides an API for recognizing text on images.\r\n```bash\r\n  TesseractPlugin.recognizeText(imageData, language, function(recognizedText) {\r\n    deferred.resolve(recognizedText);\r\n  }, function(reason) {\r\n    deferred.reject('Error on recognizing text from image. ' + reason);\r\n  });\r\n```\r\n\r\n## Installation\r\n\r\n### Before installing this plugin, make sure you have added the platform for your app:\r\n```bash\r\n$ ionic platform add android\r\n```\r\n-> substitute android with ios to build for iOS.\r\n\r\n### 1. Download or clone this project, copy it to your app root folder and run ionic command to add the plugin:\r\n```bash\r\n$ git clone https://github.com/gustavomazzoni/cordova-plugin-tesseract\r\n$ cp -rf cordova-plugin-tesseract your-project/cordova-plugin-tesseract\r\n$ cd your-project/\r\n$ ionic plugin add cordova-plugin-tesseract\r\n```\r\n\r\n### 2. For Android platform:\r\n\r\n#### 2.1 Download or clone [tess-two project](https://github.com/rmtheis/tess-two) (it contains Tesseract library for Android) and copy the 'tess-two' folder inside of it to your android platform:\r\n```bash\r\n$ git clone https://github.com/rmtheis/tess-two\r\n$ cp -rf tess-two/tess-two/ your-project/platforms/android/tess-two\r\n```\r\n\r\n#### 2.2 Edit `your-project/platforms/android/tess-two/build.gradle` and replace all content with:\r\n```bash\r\nbuildscript {\r\n    repositories {\r\n        mavenCentral()\r\n    }\r\n    dependencies {\r\n        classpath 'com.android.tools.build:gradle:0.14.0'\r\n    }\r\n}\r\n\r\napply plugin: 'android-library'\r\n\r\nandroid {\r\n    compileSdkVersion 23\r\n    buildToolsVersion \"23.0.2\"\r\n\r\n    defaultConfig {\r\n        minSdkVersion 8\r\n        targetSdkVersion 23\r\n    }\r\n\r\n    sourceSets.main {\r\n        manifest.srcFile 'AndroidManifest.xml'\r\n        java.srcDirs = ['src']\r\n        resources.srcDirs = ['src']\r\n        res.srcDirs = ['res']\r\n        jniLibs.srcDirs = ['libs']\r\n    }\r\n}\r\n```\r\n\r\n#### 2.3 Edit `your-project/platforms/android/build.gradle` file and add 'tess-two' as a dependency to your project (after `// SUB-PROJECT DEPENDENCIES END` line):\r\n```bash\r\ndependencies {\r\n    compile fileTree(dir: 'libs', include: '*.jar')\r\n    // SUB-PROJECT DEPENDENCIES START\r\n    debugCompile project(path: \"CordovaLib\", configuration: \"debug\")\r\n    releaseCompile project(path: \"CordovaLib\", configuration: \"release\")\r\n    // SUB-PROJECT DEPENDENCIES END\r\n    compile project(':tess-two')\r\n}\r\n```\r\n\r\n#### 2.4 Edit `your-project/platforms/android/cordova/lib/build.js` file that generates `settings.gradle` file:\r\n\r\n* Edit `your-project/platforms/android/cordova/lib/builders/GradleBuilder.js` and replace the `fs.writeFileSync()` function call after `// Write the settings.gradle file.` (at line 101) with:\r\n```bash\r\n//##### EDITED - Added tess-two library dependency\r\nfs.writeFileSync(path.join(this.root, 'settings.gradle'),\r\n    '// GENERATED FILE - DO NOT EDIT\\n' +\r\n    'include \":\"\\n' + settingsGradlePaths.join('') +\r\n    'include \":tess-two\"');\r\n```\r\n\r\n#### 2.5 Your project is ready to use this plugin on Android platform. Build your project:\r\n```bash\r\n$ ionic build android\r\n```\r\n\r\n### 3. For iOS platform:\r\n\r\n#### 3.1 Inside root directory of your ios platform, create Podfile and add [Tesseract OCR iOS](https://github.com/gali8/Tesseract-OCR-iOS) (Tesseract library for iOS7+) as a dependency:\r\n\r\n* Create `your-project/platforms/ios/Podfile`\r\n* Add 'TesseractOCRiOS' dependency (replace 'ocr-translation' with the name of your project):\r\n```bash\r\nsource 'https://github.com/CocoaPods/Specs.git'\r\nxcodeproj 'ocr-translation.xcodeproj/'\r\n\r\ntarget 'ocr-translation' do\r\n\r\n\tpod 'TesseractOCRiOS', '4.0.0'\r\n\r\nend\r\n```\r\n\r\n#### 3.2 Still at your ios platform folder, install the dependencies ([install the CocoaPods](https://cocoapods.org/) in case you don't have it yet) using the following commands:\r\n```bash\r\n$ pod install\r\n```\r\n\r\n#### 3.3 Your project is ready to use this plugin on iOS platform. Build your project:\r\n```bash\r\n$ ionic build ios\r\n```\r\n\r\nYour project is ready to use this plugin.\r\n\r\n## Usage\r\ncordova-plugin-tesseract is designed to recognize text in images in many languages, but for that to work we need to have the tessdata of the language you want the text to be recognized.\r\n\r\nTo use this plugin and recognize text in images, you need to:\r\n\r\n### 1. Download the language\r\nAs soon as you enter on your OCR use case, call `TesseractPlugin.loadLanguage` function to download the tessdata for your language:\r\n```bash\r\nTesseractPlugin.loadLanguage(language, function(response) {\r\n  deferred.resolve(response);\r\n}, function(reason) {\r\n  deferred.reject('Error on loading OCR file for your language. ' + reason);\r\n});\r\n```\r\n\r\n### 2. Get image data from your photo\r\nLoad the image you want the text to be recognized from. On your angular Controller use [`$cordovaCamera`](http://ngcordova.com/docs/plugins/camera/) or [`cordova-plugin-camera`](https://github.com/apache/cordova-plugin-camera) plugin to take the photo or load an image:\r\n```bash\r\n$cordovaCamera.getPicture(options).then(function(imageData) {\r\n  $scope.image = \"data:image/jpeg;base64,\" + imageData;\r\n  $scope.text = null;\r\n\r\n  $timeout(function() {\r\n    // DOM has finished rendering\r\n    // insert here the call to TesseractPlugin.recognizeText function to recognize the text\r\n    \r\n  });\r\n}, function(err) {\r\n  // error\r\n  console.log('ERROR with camera plugin. Error: ' + err);\r\n});\r\n```\r\n\r\n### 3. Recognize text from image\r\nThen, after loaded the image, just call `TesseractPlugin.recognizeText` function with the image data, the language of the text in the image and a callback function to be called after the operation is done.\r\n```bash\r\nTesseractPlugin.recognizeText(imageData, language, function(recognizedText) {\r\n  $scope.text = recognizedText;\r\n}, function(reason) {\r\n  console.log('Error on recognizing text from image. ' + reason);\r\n});\r\n```\r\n\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavomazzoni/cordova-plugin-tesseract.git"
+  },
+  "version": "0.0.1"
+}

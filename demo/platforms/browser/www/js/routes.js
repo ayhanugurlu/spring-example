@@ -29,7 +29,11 @@ angular.module('app.routes', [])
   .state('page3', {
     url: '/passportScanSuccess',
     templateUrl: 'templates/page3.html',
-    controller: 'page3Ctrl'
+    controller: 'page3Ctrl',
+	params: {
+        obj: null   
+
+    }
   })
 
   .state('page5', {

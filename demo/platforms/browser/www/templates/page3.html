@@ -9,10 +9,10 @@
         </p>
         <center>
           DOC TYPE : passport
-          <br> DOC Nummber:12345
-          <br> NATIONALITY : TR
-          <br> SURNAME : Ugurlu
-          <br> NAME : Ayhan
+          
+		  {{passpardData}}		  
+		  
+          <br> demo
 
         </center>
         <p></p>
@@ -25,5 +25,10 @@
       <ion-item class="item-icon-left" id="page3-list-item1">
         <i class="icon ion-search"></i>Trying Auto Look-Up from PNL</ion-item>
     </ion-list>
+	  <div>
+        <a style="display:block;">
+          <img src="img/KJBakgogRDig0HKZyHJs_qrcode.png" style="display: block; width: 30%; height: auto; margin-left: auto; margin-right: auto;"  ng-click="openBacodeReader()">
+        </a>
+      </div>
   </ion-content>
 </ion-view>

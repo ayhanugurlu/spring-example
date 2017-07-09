@@ -85,9 +85,9 @@ function ($scope,$state, $stateParams,$timeout,demoFactory) {
 				// DOM has finished rendering
 				// insert here the call to TesseractPlugin.recognizeText function to recognize the text
 				
-				
+				/*
 				 TesseractPlugin.loadLanguage('eng', function(response) {
-					/*navigator.notification.alert($scope.image, null, 'ERROR', 'OK');
+					navigator.notification.alert($scope.image, null, 'ERROR', 'OK');
 					TesseractPlugin.recognizeText($scope.image, 'eng',  function(recognizedText) {
 						$scope.text = recognizedText;
 						navigator.notification.alert(recognizedText, null, 'ERROR', 'OK');
@@ -97,14 +97,29 @@ function ($scope,$state, $stateParams,$timeout,demoFactory) {
 					
 						navigator.notification.alert('faıl'+reason, null, 'ERROR', 'OK');
 															
-					} );*/
+					} );
 					
-					$state.go('page3', {"obj": $scope.text});
-				  
+									  						
+					
+					
 				}, function(reason) {
 					 navigator.notification.alert('Error on loading OCR file for your language. ' + reason, null, 'ERROR', 'OK');
 				 
 				});
+				*/
+				function onPrompt(results) {
+					alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
+				}
+				
+				navigator.notification.prompt(
+					'Please enter your name',  // message
+					onPrompt,                  // callback to invoke
+					'Registration',            // title
+					['Ok','Exit'],             // buttonLabels
+					'Jane Doe'                 // defaultText
+				);
+				
+				$state.go('page3', {"obj": $scope.text})
 					
 				navigator.notification.alert('camera return success', null, 'INFO', 'OK');				
 				
@@ -137,7 +152,7 @@ function ($scope, $stateParams) {
 	 
 	 $scope.openBacodeReader = function(){
  
-			 window.barcodeScanner.scan(
+			 cordova.plugins.barcodeScanner.scan(
 			  function (result) {
 				  
 				   navigator.notification.alert("We got a barcode\n" +

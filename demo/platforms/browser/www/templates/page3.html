@@ -21,14 +21,21 @@
     <div id="page3-container10">
       <h4 id="page3-heading2" style="color:#000000;text-align:center;">FLIGHT INFO REQUIRED</h4>
     </div>
+	<div ng-show="passegerPnl" class="ng-hide">
     <ion-list id="page3-list1">
       <ion-item class="item-icon-left" id="page3-list-item1">
-        <i class="icon ion-search"></i>Trying Auto Look-Up from PNL</ion-item>
+        <i class="icon ion-search"></i>Trying Auto Look-Up from PNL
+		</ion-item>
     </ion-list>
-	  <div>
-        <a style="display:block;">
-          <img src="img/KJBakgogRDig0HKZyHJs_qrcode.png" style="display: block; width: 30%; height: auto; margin-left: auto; margin-right: auto;"  ng-click="openBacodeReader()">
-        </a>
-      </div>
+	</div> 
+	<div ng-show="passegerPnl">
+        <img src="img/o9TK4iv9TXqZxuxjRuFP_download.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;" ng-click="openBacodeReader()">
+	</div>
+	<div ng-show="passegerAutoCheck">
+    <ion-list id="page3-list2">
+      <ion-item class="item-icon-left" id="page3-list-item1">
+        <i class="icon ion-search"></i>Trying Auto Check</ion-item>
+    </ion-list>
+	</div>
   </ion-content>
 </ion-view>
